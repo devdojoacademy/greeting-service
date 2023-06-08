@@ -1,0 +1,98 @@
+openapi: 3.0.0
+info:
+  title: Greeting API
+  version: 1.0.0
+paths:
+  /api/greetings:
+    get:
+      summary: Retrieve a list of all greetings
+      responses:
+        "200":
+          description: A list of greetings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Greeting"
+    post:
+      summary: Create a new greeting
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Greeting"
+      responses:
+        "200":
+          description: The created greeting
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Greeting"
+  /api/greeting/{id}:
+    get:
+      summary: Retrieve a specific greeting
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: The requested greeting
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Greeting"
+    put:
+      summary: Update a specific greeting
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Greeting"
+      responses:
+        "200":
+          description: The updated greeting
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Greeting"
+    delete:
+      summary: Delete a specific greeting
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Greeting deleted successfully
+components:
+  schemas:
+    Greeting:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Unique identifier for the greeting
+          readOnly: true
+        message:
+          type: string
+          description: The greeting message
+      required:
+        - message
