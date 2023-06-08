@@ -30,7 +30,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Greeting"
-  /api/greeting/{id}:
+  /api/greetings/{id}:
     get:
       summary: Retrieve a specific greeting
       parameters:
