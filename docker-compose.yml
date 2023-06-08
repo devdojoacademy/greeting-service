@@ -12,5 +12,13 @@ services:
     ports:
       - "3306:3306"
 
+  greeting-api:
+    image: greeeting-api
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql_db
+
 volumes:
   db_data: {}
