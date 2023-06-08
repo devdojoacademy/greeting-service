@@ -10,9 +10,14 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -42,12 +47,49 @@ public class GreetingServiceTest {
     public void testGetAllGreetings() {
         when(repository.findAll()).thenReturn(Arrays.asList(greeting1, greeting2));
 
-        List<Greeting> result = service.getAllGreetings();
+        var result = service.getAllGreetings();
 
         assertEquals(2, result.size());
         assertEquals(greeting1, result.get(0));
         assertEquals(greeting2, result.get(1));
     }
 
-    // Continue with other test cases...
+    @Test
+    public void testGetGreetingById() {
+        when(repository.findById(greeting1.getId())).thenReturn(Optional.of(greeting1));
+
+        var result = service.getGreetingById(greeting1.getId());
+
+        assertNotNull(result);
+        assertEquals(greeting1, result);
+    }
+
+    @Test
+    public void testCreateGreeting() {
+        when(repository.save(any(Greeting.class))).thenReturn(greeting1);
+
+        var result = service.createGreeting(greeting1);
+
+        assertNotNull(result);
+        assertEquals(greeting1, result);
+    }
+
+    @Test
+    public void testUpdateGreeting() {
+        when(repository.save(any(Greeting.class))).thenReturn(greeting1);
+
+        var result = service.updateGreeting(greeting1);
+
+        assertNotNull(result);
+        assertEquals(greeting1, result);
+    }
+
+    @Test
+    public void testDeleteGreeting() {
+        doNothing().when(repository).deleteById(greeting1.getId());
+
+        service.deleteGreeting(greeting1.getId());
+
+        verify(repository, times(1)).deleteById(greeting1.getId());
+    }
 }
