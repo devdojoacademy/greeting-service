@@ -7,7 +7,7 @@ An API built with Spring Boot that allows users to manage greetings. That's w'll
   - [Project Structure](#project-structure)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
+    - [Running Locally](#running-locally)
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [License](#license)
@@ -50,7 +50,7 @@ These instructions will help you get a copy of the project up and running on you
 - Maven
 - Docker
 
-### Installation
+### Running Locally
 1. Clone the repository to your local machine:
     ```
     git clone https://github.com/yourusername/greetings-api.git
@@ -59,14 +59,11 @@ These instructions will help you get a copy of the project up and running on you
     ```
     cd greetings-api
     ```
-3. Start the database:
+3. Starting with compose up:
     ```
     docker-compose up -d
     ```
-4. Run the application:
-    ```
-    mvn spring-boot:run
-    ```
+
 The application should now be running on `http://localhost:8080`.
 
 ## Usage
