@@ -53,7 +53,7 @@ These instructions will help you get a copy of the project up and running on you
 ### Running Locally
 1. Clone the repository to your local machine:
     ```
-    git clone https://github.com/yourusername/greetings-api.git
+    git clone https://github.com/devdojoacademy/greeting-service.git
     ```
 2. Go to the project directory:
     ```
@@ -82,5 +82,3 @@ We love contributions! If you have any suggestions, bug reports, or feature requ
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
-
-Remember to replace `https://github.com/yourusername/greetings-api.git` with the actual URL of your GitHub repository.
