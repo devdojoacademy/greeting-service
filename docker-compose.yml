@@ -1,6 +1,6 @@
 version: "3"
-services:
 
+services:
   mysql_db:
     image: mysql:latest
     volumes:
@@ -11,14 +11,27 @@ services:
       MYSQL_DATABASE: greetingsdb
     ports:
       - "3306:3306"
+    networks:
+      - app_network
 
   greeting-api:
     image: greeeting-api
     build: .
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/greetingsdb
+      - DATASOURCE_USERNAME=root
+      - DATASOURCE_PASSWORD=greetingdb
+      - LOG_LEVEL=INFO
     ports:
       - 8080:8080
     depends_on:
       - mysql_db
+    networks:
+      - app_network
+
+networks:
+  app_network:
+
 
 volumes:
   db_data: {}
