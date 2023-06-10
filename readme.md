@@ -7,7 +7,8 @@ An API built with Spring Boot that allows users to manage greetings. That's w'll
   - [Project Structure](#project-structure)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Running Locally](#running-locally)
+    - [Build and Running Locally](#build-and-running-locally)
+    - [Running from docker image](#running-from-docker-image)
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [License](#license)
@@ -50,7 +51,7 @@ These instructions will help you get a copy of the project up and running on you
 - Maven
 - Docker
 
-### Running Locally
+### Build and Running Locally
 1. Clone the repository to your local machine:
     ```
     git clone https://github.com/devdojoacademy/greeting-service.git
@@ -65,6 +66,9 @@ These instructions will help you get a copy of the project up and running on you
     ```
 
 The application should now be running on `http://localhost:8080`.
+
+### Running from docker image
+Please follow the instructions at the [docker repository.](https://hub.docker.com/r/brnnai/greeting-service)
 
 ## Usage
 Here are a few examples of how to use the API:
