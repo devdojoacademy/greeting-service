@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devdojo Greetings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="column column-30">
+                    <section id="user-config">
+                        <h1>Config</h1>
+                        <!-- Insert user config options here -->
+                    </section>
+                </div>
+                <div class="column column-50">
+                    <section id="greeting-section">
+                        <div id="create-greeting">
+                            <h1>Create a New Greeting</h1>
+                            <form id="greeting-form">
+                                <textarea id="greeting-input" maxlength="140"></textarea>
+                                <span id="char-count">0 / 140</span>
+                                <button type="submit">Post Greeting</button>
+                            </form>
+                        </div>
+                        <div id="greeting-list">
+                            <h1>Greetings</h1>
+                            <ul id="greetings"></ul>
+                        </div>
+                    </section>
+                </div>
+                <div class="column column-20">
+                    <section id="ads">
+                        <h1>adds</h1>
+                        <!-- Insert ad content here -->
+                    </section>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <script src="greeting-api.js"></script>
+    <script>
+        const greetingInput = document.getElementById('greeting-input');
+        const charCount = document.getElementById('char-count');
+
+        greetingInput.addEventListener('input', function () {
+            const currentLength = greetingInput.value.length;
+            charCount.textContent = `${currentLength} / 140`;
+        });
+    </script>
+</body>
+
+</html>
