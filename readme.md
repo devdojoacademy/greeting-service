@@ -1,8 +1,8 @@
-# Greetings API
-An API built with Spring Boot that allows users to manage greetings. That's w'll be used in the AWS white belt video series.
+# greeting API
+An API built with Spring Boot that allows users to manage greeting. That's w'll be used in the AWS white belt video series.
 
 ## Table of Contents
-- [Greetings API](#greetings-api)
+- [greeting API](#greeting-api)
   - [Table of Contents](#table-of-contents)
   - [Project Structure](#project-structure)
   - [Getting Started](#getting-started)
@@ -24,10 +24,10 @@ The main building blocks of the project are:
 │   ├── model
 │   │   ├── Greeting.java
 │   ├── service
-│   │   ├── GreetingService.java
+│   │   ├── greetingervice.java
 |   ├── repository
 │   │   ├── GreetingRepository.java
-│   ├── GreetingServiceApplication.java
+│   ├── greetingerviceApplication.java
 ├── src/main/resources
 │   ├── application.properties
 ├── .gitignore
@@ -38,7 +38,7 @@ The main building blocks of the project are:
 
 - `GreetingController.java`: This class is responsible for handling HTTP requests and responses.
 - `Greeting.java`: This class is an entity that represents a greeting.
-- `GreetingService.java`: This class provides business logic for managing greetings.
+- `greetingervice.java`: This class provides business logic for managing greeting.
 - `Application.java`: This is the main class that runs the Spring Boot application.
 - `application.properties`: This file contains configuration properties for the application.
 - `pom.xml`: This file contains project metadata and dependencies.
@@ -58,7 +58,7 @@ These instructions will help you get a copy of the project up and running on you
     ```
 2. Go to the project directory:
     ```
-    cd greetings-api
+    cd greeting-api
     ```
 3. Starting with compose up:
     ```
@@ -73,11 +73,11 @@ Please follow the instructions at the [docker repository.](https://hub.docker.co
 ## Usage
 Here are a few examples of how to use the API:
 
-- Get all greetings: `GET /api/greetings`
-- Get a specific greeting: `GET /api/greetings/{id}`
-- Create a new greeting: `POST /api/greetings`
-- Update a greeting: `PUT /api/greetings/{id}`
-- Delete a greeting: `DELETE /api/greetings/{id}`
+- Get all greeting: `GET /api/greeting`
+- Get a specific greeting: `GET /api/greeting/{id}`
+- Create a new greeting: `POST /api/greeting`
+- Update a greeting: `PUT /api/greeting/{id}`
+- Delete a greeting: `DELETE /api/greeting/{id}`
 
 ## Contributing
 We love contributions! If you have any suggestions, bug reports, or feature requests, feel free to create an issue or a pull request.
