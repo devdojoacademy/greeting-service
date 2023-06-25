@@ -1,4 +1,4 @@
-const API_URL = 'http://white-belt-alb-802870550.us-east-1.elb.amazonaws.com/api/greeting';
+const API_URL = 'http://localhost:8080/api/greeting';
 
 // Fetch and display the list of greetings when the page loads
 window.onload = function () {
@@ -17,14 +17,19 @@ function fetchGreetings() {
     fetch(API_URL)
         .then(response => response.json())
         .then(greetings => {
+            console.log(greetings)
             const greetingList = document.getElementById('greetings');
             // Clear the list before adding new greetings
             greetingList.innerHTML = '';
             greetings.forEach(greeting => {
+                console.log(greeting)
                 const listItem = document.createElement('li');
                 listItem.textContent = greeting.message;
                 greetingList.appendChild(listItem);
             });
+        })
+        .catch(err => {
+            console.error(err);
         });
 }
 
@@ -42,6 +47,7 @@ document.getElementById('greeting-form').addEventListener('submit', event => {
 
 // Create a new greeting by sending a POST request to the API
 function createGreeting(message) {
+    console.log(message)
     fetch(API_URL, {
             method: 'POST',
             headers: {
@@ -57,3 +63,7 @@ function createGreeting(message) {
             fetchGreetings();
         });
 }
+
+document.getElementById('adContainer').addEventListener('click', function () {
+    window.open('https://devdojo.academy', '_blank');
+});
