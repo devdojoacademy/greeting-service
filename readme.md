@@ -7,7 +7,7 @@ An API built with Spring Boot that allows users to manage greeting. That's w'll 
   - [Project Structure](#project-structure)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Build and Running Locally](#build-and-running-locally)
+    - [Build and Running Locally from docker](#build-and-running-locally-from-docker)
     - [Running from docker image](#running-from-docker-image)
   - [Usage](#usage)
   - [Contributing](#contributing)
@@ -18,25 +18,34 @@ The main building blocks of the project are:
 
 ```
 .
-├── src/main/java/com/devdojo/greeting
-│   ├── controller
-│   │   ├── GreetingController.java
-│   ├── model
-│   │   ├── Greeting.java
-│   ├── service
-│   │   ├── greetingervice.java
-|   ├── repository
-│   │   ├── GreetingRepository.java
-│   ├── greetingerviceApplication.java
-├── src/main/resources
-│   ├── application.properties
-├── .gitignore
-├── pom.xml
-├── README.md
-├── docker-compose.yml
+├── App
+    ├── src/main/java/com/devdojo/greeting
+    │   ├── controller
+    │   │   ├── GreetingController.java
+    │   ├── model
+    │   │   ├── Greeting.java
+    │   ├── service
+    │   │   ├── greetingervice.java
+    |   ├── repository
+    │   │   ├── GreetingRepository.java
+    │   ├── greetingerviceApplication.java
+    ├── src/main/resources
+    │   ├── application.properties
+    ├── .gitignore
+    ├── pom.xml
+    ├── README.md
+    ├── Dockerfile
+    ├── docker-compose.yml
+├── client
+    ├── greeting-api.js
+    ├── index.hmtl
+    ├── styles.css
+├── scripts
+    ├── build.sh
+    ├── run.sh
+
 ```
 
-- `GreetingController.java`: This class is responsible for handling HTTP requests and responses.
 - `Greeting.java`: This class is an entity that represents a greeting.
 - `greetingervice.java`: This class provides business logic for managing greeting.
 - `Application.java`: This is the main class that runs the Spring Boot application.
@@ -51,7 +60,7 @@ These instructions will help you get a copy of the project up and running on you
 - Maven
 - Docker
 
-### Build and Running Locally
+### Build and Running Locally from docker
 1. Clone the repository to your local machine:
     ```
     git clone https://github.com/devdojoacademy/greeting-service.git
@@ -60,12 +69,13 @@ These instructions will help you get a copy of the project up and running on you
     ```
     cd greeting-api
     ```
-3. Starting with compose up:
+3. Starting with script thats build and up the client and the backend:
     ```
-    docker-compose up -d
+    ./scripts/run.sh
     ```
 
-The application should now be running on `http://localhost:8080`.
+The backend application should now be running on `http://localhost:8080`.
+The frontend client should now be running on `http://localhost:8081`.
 
 ### Running from docker image
 Please follow the instructions at the [docker repository.](https://hub.docker.com/r/brnnai/greeting-service)
