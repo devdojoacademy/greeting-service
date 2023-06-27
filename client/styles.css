@@ -58,3 +58,25 @@ button {
 #greeting-list li:last-child {
     border-bottom: none;
 }
+
+.ad-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+}
+
+.ad-content {
+    padding: 10px;
+}
+
+#adImage {
+    width: 100px;
+    height: 100px;
+}
