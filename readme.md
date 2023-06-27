@@ -1,13 +1,13 @@
-# Greetings API
-An API built with Spring Boot that allows users to manage greetings. That's w'll be used in the AWS white belt video series.
+# greeting API
+An API built with Spring Boot that allows users to manage greeting. That's w'll be used in the AWS white belt video series.
 
 ## Table of Contents
-- [Greetings API](#greetings-api)
+- [greeting API](#greeting-api)
   - [Table of Contents](#table-of-contents)
   - [Project Structure](#project-structure)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Build and Running Locally](#build-and-running-locally)
+    - [Build and Running Locally from docker](#build-and-running-locally-from-docker)
     - [Running from docker image](#running-from-docker-image)
   - [Usage](#usage)
   - [Contributing](#contributing)
@@ -18,27 +18,36 @@ The main building blocks of the project are:
 
 ```
 .
-├── src/main/java/com/devdojo/greeting
-│   ├── controller
-│   │   ├── GreetingController.java
-│   ├── model
-│   │   ├── Greeting.java
-│   ├── service
-│   │   ├── GreetingService.java
-|   ├── repository
-│   │   ├── GreetingRepository.java
-│   ├── GreetingServiceApplication.java
-├── src/main/resources
-│   ├── application.properties
-├── .gitignore
-├── pom.xml
-├── README.md
-├── docker-compose.yml
+├── App
+    ├── src/main/java/com/devdojo/greeting
+    │   ├── controller
+    │   │   ├── GreetingController.java
+    │   ├── model
+    │   │   ├── Greeting.java
+    │   ├── service
+    │   │   ├── greetingervice.java
+    |   ├── repository
+    │   │   ├── GreetingRepository.java
+    │   ├── greetingerviceApplication.java
+    ├── src/main/resources
+    │   ├── application.properties
+    ├── .gitignore
+    ├── pom.xml
+    ├── README.md
+    ├── Dockerfile
+    ├── docker-compose.yml
+├── client
+    ├── greeting-api.js
+    ├── index.hmtl
+    ├── styles.css
+├── scripts
+    ├── build.sh
+    ├── run.sh
+
 ```
 
-- `GreetingController.java`: This class is responsible for handling HTTP requests and responses.
 - `Greeting.java`: This class is an entity that represents a greeting.
-- `GreetingService.java`: This class provides business logic for managing greetings.
+- `greetingervice.java`: This class provides business logic for managing greeting.
 - `Application.java`: This is the main class that runs the Spring Boot application.
 - `application.properties`: This file contains configuration properties for the application.
 - `pom.xml`: This file contains project metadata and dependencies.
@@ -51,21 +60,22 @@ These instructions will help you get a copy of the project up and running on you
 - Maven
 - Docker
 
-### Build and Running Locally
+### Build and Running Locally from docker
 1. Clone the repository to your local machine:
     ```
     git clone https://github.com/devdojoacademy/greeting-service.git
     ```
 2. Go to the project directory:
     ```
-    cd greetings-api
+    cd greeting-api
     ```
-3. Starting with compose up:
+3. Starting with script thats build and up the client and the backend:
     ```
-    docker-compose up -d
+    ./scripts/run.sh
     ```
 
-The application should now be running on `http://localhost:8080`.
+The backend application should now be running on `http://localhost:8080`.
+The frontend client should now be running on `http://localhost:8081`.
 
 ### Running from docker image
 Please follow the instructions at the [docker repository.](https://hub.docker.com/r/brnnai/greeting-service)
@@ -73,11 +83,11 @@ Please follow the instructions at the [docker repository.](https://hub.docker.co
 ## Usage
 Here are a few examples of how to use the API:
 
-- Get all greetings: `GET /api/greetings`
-- Get a specific greeting: `GET /api/greetings/{id}`
-- Create a new greeting: `POST /api/greetings`
-- Update a greeting: `PUT /api/greetings/{id}`
-- Delete a greeting: `DELETE /api/greetings/{id}`
+- Get all greeting: `GET /api/greeting`
+- Get a specific greeting: `GET /api/greeting/{id}`
+- Create a new greeting: `POST /api/greeting`
+- Update a greeting: `PUT /api/greeting/{id}`
+- Delete a greeting: `DELETE /api/greeting/{id}`
 
 ## Contributing
 We love contributions! If you have any suggestions, bug reports, or feature requests, feel free to create an issue or a pull request.

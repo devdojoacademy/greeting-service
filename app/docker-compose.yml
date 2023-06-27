@@ -8,17 +8,17 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: greetingdb
-      MYSQL_DATABASE: greetingsdb
+      MYSQL_DATABASE: greetingdb
     ports:
       - "3306:3306"
     networks:
       - app_network
 
   greeting-api:
-    image: greeeting-api
+    image: brnnai/greeting-service
     build: .
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/greetingsdb
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/greetingdb
       - DATASOURCE_USERNAME=root
       - DATASOURCE_PASSWORD=greetingdb
       - LOG_LEVEL=INFO
