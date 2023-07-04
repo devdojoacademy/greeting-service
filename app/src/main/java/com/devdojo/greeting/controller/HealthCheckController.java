@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 @CrossOrigin(origins = "*")
-public class GreetingController {
+public class HealthCheckController {
     private static final Logger LOGGER = LoggerFactory.getLogger(GreetingController.class);
 
     @GetMapping("/healthcheck")
