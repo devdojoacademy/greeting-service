@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/greeting")
-@CrossOrigin(origins = "*") // replace with your client's address
+@CrossOrigin(origins = "*")
 public class GreetingController {
     private static final Logger LOGGER = LoggerFactory.getLogger(GreetingController.class);
 
