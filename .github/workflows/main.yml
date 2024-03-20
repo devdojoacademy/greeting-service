@@ -9,7 +9,7 @@ jobs:
   call-reusable-workflow:
     uses: devdojoacademy/githubtemplates/.github/workflows/ecs-service-deploy.yml@main
     with:
-      ecr_repository: greetings-service
+      ecr_repository: greetings-service # teste again
       aws_region: us-east-1
       aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
       aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
