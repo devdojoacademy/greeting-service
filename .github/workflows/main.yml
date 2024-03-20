@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-reusable-workflow:
-    uses: devdojoacademy/githubtemplates/.github/workflows/ecs-service-deploy.yml@main
+    uses: devdojoacademy/.github/workflows/ecs-service-deploy.yml@main
     with:
       ecr_repository: greetings-service
       aws_region: us-east-1
