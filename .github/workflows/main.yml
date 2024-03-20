@@ -1,0 +1,15 @@
+name: CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-reusable-workflow:
+    uses: devdojoacademy/.github/workflows/ecs-service-deploy.yml@main
+    with:
+      ecr_repository: greetings-service # Set this per-repository as needed
+      aws_region: us-east-1
+      aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
